@@ -1,0 +1,17 @@
+Maneras de trabajar con Git
+consola de Comando del sistema operativo
+Git bash
+comandos de git:
+
+git version : verificar version de git instalada y que efectivamente esta instalada
+
+instalar git bash: emulador consola de comandos de linux
+
+click derecho: menu contextual
+
+para moverse entre carpetas por el cmd es: 
+
+dir (se despliegan las carpetas del disco duro C)
+cd (nombre de la carpeta en cuestion)
+
+flecha arriba y abajo para atajos de comandos
