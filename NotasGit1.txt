@@ -130,6 +130,75 @@ si quiero escribir con espacio debo agregar comillas shift + num2
 
 
 
+                               
+
+                           Clase2 GIT
+
+
+
+
+                       Confirmacion Resumida
+
+git commit -m "se agrega el archvio algoritmo.txt" ---permite crear en la confirmacion y el mensaje lo deja corto
+
+git commit -a -m "agregar nueva linea al algoritmo" ---prepara y confirma (hay que dejar mensaje)
+
+git checkout -- "nombre del archivo" ---deshacer el cambio (no se pueden recuperar)
+
+git reset HEAD "nombre del archivo"---deshacer el cambio que este en el Stating Area
+
+modificar ultima modificacion
+
+Git school + Github: abrir
+
+https://git-school.github.io/visualizing-git/
+
+git commit --amend -m "nombre del archvivo" ---la ultima confirmacion va ser sustituida por la nueva
+                                               (se puede cambiar el mensaje), sirve para sustituir commit sin necesidad de crear otro
+
+git restore --staged "nombre del archivo" deshacer cambios, mandar otra vez a Working Area
+
+                        DIFERENCIAS
+
+git diff -- que cambios hay con respecto a un archivo que ya este preparado o confirmado
+git diff --staged ---muestra las diferencias que hay entre lo que esta confirmado pero que esta en el stage
+
+                     Historial de Confirmaciones
+
+Entre los datos que se muestran al ejecutar git log estan:
+-el identificador unico de la confirmacion
+-el autor de la confirmacion (nombre y correo)
+-la fecha de la confirmacion
+-el mensaje resumen de la confirmacion
+
+                   Historial Grafico
+
+Observar el arbol de confirmaciones, ver las diferencias etc etc
+
+cambio para verlo en el diff
+
+presionar letra Q para salir
+
+
+58min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
