@@ -15,3 +15,128 @@ dir (se despliegan las carpetas del disco duro C)
 cd (nombre de la carpeta en cuestion)
 
 flecha arriba y abajo para atajos de comandos
+
+
+
+GIT Bash
+
+cd .. (ir hacia atras)
+dir
+
+
+
+                                         Repositorios Locales
+
+para comenzar un proyecto se debe tener el uso del comando "git init", esto crea un repositorio
+
+-No meterse con la carpeta ".git"
+
+-Cada archivo del directorio puede estar en uno de estos dos estados
+
+    -untracked: sin seguimiento (Git no sabe nada sobre dicho archivo)
+    -tracked: bajo seguimiento (Git sabe todos los cambios hechos a dicho archivo)
+
+comando: "git status" para conocer el estado de repositorio
+
+ejemplo untracked:
+
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        NotasGit1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+----------------------------------------------------------------------------------------
+En git existen "archivos ignorados"
+
+estos archivos pueden tener:
+un archivo especifico: "leame.txt"
+se puede especificar un patron ".tmp"
+un carpeta: "node_modules/"
+
+para ignorar un archivo "mv (nombre del archivo) .gitignore"
+
+escribir dentro del archivo .gitignore el nombre del archivo que se quiera ignorar, tambien se puede eliminar una linea
+de archivos colocando *(nombre de la extension)
+
+git add nombreArchivo --- esto indica a git que el archivo llamado nombreArchivo debe tener seguimiento. (track)
+
+git add . --- indica a git que todos los archivos que se encuentren "untracked" pasen a ser "tracked"
+
+git rm --cached archivo --- sacar archivo de repositorio (para sacar una carpeta ./nombredeCarpeta/nombredeArchivo)
+
+llamar a un archivo ejecutable con git "../rutadelLink"
+
+
+Confirmaciones:
+
+
+Working Area: es donde se encuentran los archivos que están siendo editados.
+
+Staging Area: es donde se encuentran archivos que ya han sido modificados y fueron agregados usando el comando git add,
+por lo tanto, están preparados para la confirmación.
+
+Local Repository: es donde se encuentran las versiones finales de los archivos que ya han sido confirmados.
+
+
+Los estados que pueden tener los archivos son:
+
+untracked: es el estado inicial de cualquier archivo o carpeta que está en la carpeta del repositorio o el estado que
+toma un archivo cuando es removido del repositorio.
+
+new and staged: el estado que toma el archivo cuando es agregado al repositorio la primera vez con el comando git add.
+
+unmodified: el estado que toma el archivo cuando es confirmado utilizando el comando git commit.
+
+modified: es el estado al que pasa un archivo que esta en el repositorio y ha sido modificado.
+Los cambios del archivo estan en el "Working Área".
+
+staged: el estado que toma el archivo cuando es agregado al "Staging area" con el comando git add.
+
+antes de confirmar hay que identificarnos
+
+git config --global user.name "Juan Chacon"@
+
+git config --global user.email "chaconjuan439@gmail.com"
+
+En el caso que simplemente se necesite mostrar la información que contienen esas variables,
+se usa el mismo comando pero obviando el valor de la variable
+
+git commit --- ejecuta la confirmacion
+
+Al ejecutar el comando "git commit", se abre un editor de texto para que escriba la descripción de la confirmación.
+El editor aparece con algunas líneas que muestran los archivos que estan siendo agregados en la versión.
+Las líneas que comiencen con # serán ignoradas.
+
+Para empezar a escribir en este editor, se debe presionar la tecla "i" (de insert).
+Cuando se termine de escribir el mensaje, se debe presionar la tecla escape.
+Luego se debe presionar las teclas ":wq".
+Si no se desean guardar los cambios, sólo se debe presionar ":q" (se cierra el editor de texto y el commit se cancelará)
+
+documentar todo lo que haga para un futuro
+
+Si se guardan los cambios del mensaje, se cerrará el editor de texto y luego del commit,
+Git mostrará un resumen informando los cambios en esta confirmación,
+mostrando: el mensaje resumen del commit, cuantas inserciones, eliminaciones y modificaciones hubo.
+
+Si se intenta hacer commit sin haber cambios agregados al "Stagin Area",
+Git informará del error y no registrará la confirmación
+
+si quiero escribir con espacio debo agregar comillas shift + num2
+
+
+
+
+
+
+
+
+
+
+
+
+
