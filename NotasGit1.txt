@@ -179,8 +179,56 @@ cambio para verlo en el diff
 
 presionar letra Q para salir
 
+gitk --- ver el historial grafico
+git log -n 4 --- ver las ultimas 4 confirmaciones del repositorio
+git log -4 --- ver solamente los ultimos 4 commit
 
-58min
+
+                          MANIPULANDO ARCHIVOS
+
+git mv "nombre del archivo" "nuevo nombre del archivo" ---cambiar nombre
+git rm --- borrar definitivamente el archivo del repositorio
+git mv "nombre del archivo" carpet/"nombre del archivo"
+
+                         VIAJANDO EN EL TIEMPO
+
+Cada confirmación tiene un identificador único.
+Cada confirmación es parte de un árbol.
+Todas las confirmaciones estan enlazadas entre sí, de forma tal que se puede navegar de una a otra.
+Hay un elemento que permite apuntar la confirmación actual. A este elemento se le denomina "HEAD"
+
+En algun momento se puede hacer que el HEAD se ubique en otra confirmación, de forma tal que se puede visualizar
+el estado del repositorio en esa confirmación. Esto se logra con el comando “git checkout”.
+La forma general de usarlo es la siguiente: git checkout Donde el parámetro "códigoCommit"
+indica el código del commit al que se desea viajar. Para determinar a cuál confirmación se desea mover,
+debe averiguar primero el código de la confirmación, utilizando el comando "git log".
+
+git checkout master --- Cuando se desea regresar nuevamente a la última confirmación
+
+                    RESET
+
+Los viajes en el tiempo que se han hecho hasta ahora no han realizado cambios ni eliminado ninguna de las confirmaciones
+anteriores. ¿Qué tal que lo que se desea es retroceder en el tiempo pero a su vez eliminar todas las confirmaciones
+hasta el punto hasta el cual retrocede?. Esto con el objetivo de no dejar rastros de esas confirmaciones y que
+no aparezcan en el historial.
+
+Git provee un comando que permite hacer lo anteriormente descrito, es decir, retroceder a algún commit pero con
+git reset "nombre de la confirmacion"--- eliminando los commit anteriores.
+El comando reset puede ser usado en alguno de estos modos:
+
+Soft: No toca el archivo de índice o el árbol de trabajo en absoluto (pero restablece el encabezado a ,
+al igual que todos los modos). Esto deja todos los archivos modificados "Cambios que se comprometerán",
+como lo indicaría el estado de git.
+
+Mixed: Restablece el índice pero no el árbol de trabajo (es decir, los archivos modificados se conservan
+pero no se marcan para la confirmación) e informa lo que no se ha actualizado. Esta es la acción por defecto.
+
+Hard: Restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de
+trabajo desde se descarta
+
+git reset "nombre de la confirmacion" --soft
+
+
 
 
 
