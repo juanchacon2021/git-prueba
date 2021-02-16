@@ -229,6 +229,219 @@ trabajo desde se descarta
 git reset "nombre de la confirmacion" --soft
 
 
+                                  CLASE 3
+
+DEFINICION:
+
+La característica de Git que realmente hace que sea distinto de casi todos los otros
+SCV es su modelo de ramificación. Git permite tener múltiples ramas locales que
+pueden ser totalmente independientes entre sí, lo que permite crear una línea de
+tiempo de las versiones de los archivos. El sistema de ramificación permite la
+creación de diversas líneas de tiempo separadas e identificadas bajo un nombre,
+que en cualquier momento pueden ser integradas entre sí.
+
+Esto facilita en gran medida el trabajo en equipo, ya que se pueden crear líneas de
+tiempo del proyecto para cada tarea o cada uno de los involucrados en el desarrollo,
+donde dichos cambios luego puedan ser integrados a una versión central del proyecto.
+
+En el día a día del trabajo con Git una de las cosas más útiles que se puede hacer es
+trabajar con ramas. Las ramas son caminos que puede tomar el desarrollo de un software,
+algo que ocurre naturalmente para resolver problemas o crear nuevas funcionalidades.
+
+En la práctica permiten que nuestro proyecto pueda tener diversos estados y que los
+desarrolladores sean capaces de pasar de uno a otro de una manera ágil.
+Las ramas se pueden usar para muchas situaciones.
+Por ejemplo, al trabajar en un proyecto donde se necesita implementar una nueva
+funcionalidad en la que es posible que se tenga que invertir varios días,
+mediante el uso de ramas se puede crear prácticamente un proyecto paralelo
+al proyecto central sin necesidad de alterar el código de este último,
+donde luego si es necesario, se pueden agregar esos nuevos cambios al proyecto.
+
+
+CREANDO RAMAS:
+
+git branch --- reconocer que ramas tenemos, marcar con un * la rama donde estamos
+git branch "nuevarama" --- crear una nueva rama, se debe usar el comando anterior agregándole el nombre de la nueva rama como sigue
+gitk --- se puede ver la rama
+git checkout "nombre de la rama" nos movemos hacia esa rama
+
+El comando checkout tiene la posibilidad de permitir crear una rama nueva y
+mover el HEAD a ella en un único paso.
+
+git checkout -b "otrarama" --- Para crear una nueva rama y situar sobre ella
+
+
+ELIMINANDO RAMAS:
+
+Las ramas en un repositorio son temporales, una vez utilizada y cumplida su función por lo general las ramas son eliminadas para mantener un orden
+dentro del repositorio.
+
+Eliminar una rama simplemente sería quitar la línea de tiempo paralela creada,
+no afectará en lo absoluto a las demás ramas.
+
+git branch -d "nombre de la rama" ---eliminar rama
+
+Si la rama tiene cambios sin fusionar dará un error como el siguiente:
+error: The branch desarrollo is not an ancestor of your current HEAD.
+If you are sure you want to delete it, run git branch -D desarrollo.
+
+UNION DE RAMAS:
+
+git merge "ramaAfucionar" ---fucionar rama, la fucion se va a realizar
+con la rama en la cual se está posicionado actualmente.
+
+En la fusión de ramas generalmente ocurre uno de los siguientes casos
+
+Fast-Forward: No existen conflictos de cambios similares entre las ramas.
+Manual Merge: Existen confictos en cambios hechos en ambas ramas
+sobre los mismos archivos.
+El Fast-Forward ocurre cuando la rama que se desea fusionar es hija
+de la rama actual, la cual no ha sufrido cambios.
+En este caso simplemente se fusionan las ramas,
+se agregan los nuevos commit a la rama actual y se posiciona
+el HEAD en el último nuevo commit. Es decir,
+la rama actual queda ahora con los mismos commit que la rama
+que se fusionó.
+
+RESOLVIENDO CONFLICTOS:
+
+El segundo caso que puede ocurrir al hacer una fusión entre ramas,
+es que exista confirmaciones de cambios en ambas ramas que hayan
+afectado a las mismas líneas de uno o más archivos.
+
+En este caso Git muestra la advertencia y las líneas en las cuales
+existen conflictos, así que se debe proceder manualmente a solventar
+el problema para luego hacer un nuevo commit.
+
+Ejemplo: en la rama master y en la rama desarrollo se modificó la
+primera línea del archivo README.txt.
+
+
+                               GITHUB
+
+El trabajo en equipo es fundamental para lograr los objetivos de algún proyecto
+de manera efectiva, además, que cada vez es más común encontrar equipos de trabajo
+donde existe una separación física de sus integrantes, lo que se convierte en un
+reto para las nuevas organizaciones.
+
+Es por ello que se ha pensado en el desarrollo de ciertas plataformas que apoyen la
+integración del trabajo en equipo, facilitando a sus miembros la realización de sus
+actividades.
+
+GitHub es una plataforma de desarrollo colaborativo para alojar proyectos utilizando
+el sistema de control de versiones Git.
+
+Se utiliza principalmente para la creación de código fuente de programas de
+computadoras. El software que opera GitHub fue escrito en Ruby on Rails.
+
+Desde enero de 2010, GitHub opera bajo el nombre de GitHub, Inc.
+Anteriormente era conocida como Logical Awesome LLC.
+El código de los proyectos alojados en GitHub se almacena típicamente de
+forma pública, aunque utilizando una cuenta de pago,
+también permite hospedar repositorios privados.
+
+Allí se debe colocar el nombre del repositorio, una breve descripción,
+tipo de repositorio (público o privado). El archivo README es importante,
+por lo cual se debe habilitar la opción para crear con el proyecto un archivo README,
+el cual servirá para especificar información del repositorio:
+
+Owner: Dueño del proyecto.
+ProjectName: Nombre del proyecto.
+Description: Descripcion básica del repositorio.
+Public ó Private: Especifica la seguridad del repositorio.
+Por defecto los repositorios en GitHub son públicos.
+
+Para crear una GitHub Page de cualquier proyecto, se debe crear un nuevo proyecto o
+utilizar uno ya existente, sabiendo que debe estar clonado localmente para poder
+hacer las modificaciones respectivas.
+
+Se debe crear una rama llamada gh-pages git branch gh-pages
+Esta es la rama que debe albergar los archivos de la página.
+Los cambios se deben subir a esta rama mediante el comando git push origin gh-pages.
+
+Para acceder la página del repositorio, basta con colocar la url que siga la siguiente estructura:
+nombreUsuario.github.io/nombreRepositorio Donde “nombreUsuario”
+es el nombre de usuario registrado en GitHub y “nombreRepositorio”
+es el nombre del repositorio en el cual hemos
+subido los archivos a su rama gh-pages
+
+git branch gh-pages: rama que debemos crear en el repositorio local
+para luego subir dicha rama al repositorio remoto y eso pueda estar
+disponible en la web, accediendo a traves de la
+URL: nombreUsuario.github.io/nombreRepositorio
+
+            REPOSITORIO REMOTO
+
+Una de las grandes ventajas de Git es que es un sistema de control de versiones distribuidos,
+es decir, que un repositorio puede estar localmente o remotamente. Por lo tanto,
+debe haber una forma de compartir el trabajo realizado en un repositorio con otros
+desarrolladores. Los repositorios remotos son versiones de un proyecto que se encuentran
+alojados en un servidor accesible a través de la red.
+
+Entre las ventajas de los repositorios remotos están:
+
+Tener copias del trabajo en la web, lo que las hace accesibles en cualquier momento.
+
+Redundancia de los archivos, lo que suopne un alto nivel de disponibilidad en caso de fallos.
+
+Gestión de proyectos en equipo.
+
+Control de actividades en el desarrollo.
+
+Colaboración en proyectos de terceros en plataformas que usen Git como sistema de control
+de versiones.
+
+Crear portafolios de trabajos realizados por el usuario
+
+               CLONANDO REPOSITORIOS
+
+Es muy común tener la necesidad de obtener algún proyecto de un repositorio remoto que ya esté
+adelantado, solo para agregarlo al ambiente local. Para obtener un repositorio remoto de
+GitHub sin tener ningún repositorio local, el usuario debe colocarse en la carpeta donde
+necesita que se cree el repositorio y usar el comando “clone” de git.
+
+Para clonar un repositorio se necesita la URL del repositorio.
+La estructura del comando clone es la siguiente:
+Git clone "url"
+
+El comando git clone realiza las siguientes acciones:
+
+Crea una carpeta.
+Crea un repositorio git en la carpeta.
+Copia el contenido del repositorio remoto en la carpeta local.
+Se agrega un repositorio remoto con el nombre "origin"
+Los repositorios clonados tendrán la misma estructura y características del repositorio remoto,
+eso incluye commits y ramas.
+
+Git provee el comando “git remote -v” para verificar el o los repositorios remotos que
+tiene asociado el repositorio local. En la imagen se muestra la salida de un repositorio
+local el cual no está asociado a ningún repositorio remoto.
+
+El repositorio remoto tiene asociado una URL dentro de la plataforma con
+el siguiente patrón: https://github.com/vilferalvarez/Cadif1Project.git
+
+Para establecer la conexión entre los 2 repositorios, se debe usar una variante del
+comando remote como sigue: git remote add nombre url Donde “nombre” es el nombre para
+identificar el repositorio remoto y la “url” para especificar la dirección exacta de
+ese repositorio en la web.
+
+El nombre del repositorio remoto es arbitrario. En cualquier momento se puede cambiar el
+nombre con el comando "git remote rename". La forma general del comando es:
+git remote rename [antiguo-nombre] [nuevo-nombre] Donde "antiguo-nombre" es el nombre original
+y "nuevo-nombre" el nombre que se desea asignar.
+
+También se puede eliminar la referencia a un repositorio remoto con el comando
+"git remote rm". La forma general del comando es: git remote rm [nombre-remoto]
+Donde "nombre-remto" es el nombre del repositorio remoto que se desea eliminar.
+
+Por ejemplo: git remote rm origin Eliminará el repositorio remoto que tiene
+el nombre "origin".
+
+
+
+
+
+
 
 
 
